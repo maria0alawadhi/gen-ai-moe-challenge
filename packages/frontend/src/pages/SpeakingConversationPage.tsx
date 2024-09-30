@@ -165,19 +165,15 @@ export const SpeakingConversationPage: React.FC = () => {
 
   const stopRecording = () => {
     if (recorder) {
-      setRecording(false); // Ensure recording is stopped
-      setShowAnswerTimer(false); // Hide the answer timer
-  
-      // Reset the submitted state before stopping the recording
-      if (!submitted) {
-        setSubmitted(true);
-      }
-  
+      setRecording(false);
+      setSubmitted(true);
+      setShowAnswerTimer(false);
+
       recorder.stopRecording(async () => {
         const blob = recorder.getBlob();
         const audioFileName = generateFileName();
         setAudioURL(URL.createObjectURL(blob));
-  
+
         const response = await toJSON(
           post({
             apiName: 'myAPI',
@@ -191,21 +187,21 @@ export const SpeakingConversationPage: React.FC = () => {
                 fileName: audioFileName,
                 fileType: blob.type,
               },
-            }),
+            },
           }),
         );
         const presignedUrl = response.url;
-  
+
         await axios.put(presignedUrl, blob, {
           headers: {
             'Content-Type': blob.type,
           },
         });
-  
+
         const audioFileNames: string[] = [];
         const questions: string[] = [];
         console.log(question);
-  
+
         sendMessage(
           JSON.stringify({
             action: 'gradeSpeakingP1',
