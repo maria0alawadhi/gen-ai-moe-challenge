@@ -35,8 +35,3 @@ Actions:
       Container:
         Registry: CODECATALYST
         Image: CodeCatalystLinux_x86_64:2024_03
-    Environment:
-      Connections:
-        - Role: CodeCatalystWorkflowDevelopmentRole-DeploymentTest
-          Name: "440744244382"
-      Name: Prod
