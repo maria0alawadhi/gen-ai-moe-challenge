@@ -1,0 +1,3 @@
+[submodule "gen-ai-moe-challenge"]
+    path = gen-ai-moe-challenge
+    url = https://github.com/username/gen-ai-moe-challenge.git
