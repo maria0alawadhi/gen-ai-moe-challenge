@@ -36,3 +36,6 @@ Actions:
         Image: CodeCatalystLinux_x86_64:2024_03
     Environment:
       Name: Prod
+    Compute:
+      Type: EC2
+      Fleet: Linux.x86-64.Large
