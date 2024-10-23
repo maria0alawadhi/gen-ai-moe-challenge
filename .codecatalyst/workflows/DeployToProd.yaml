@@ -31,7 +31,6 @@ Actions:
       Steps:
         - Run: npm install
         - Run: npm audit fix
-        - Run: npx sst deploy --stage devops-coca
         - Run: chmod +x ./.codecatalyst/scripts/sst_deploy.sh
         - Run: ./.codecatalyst/scripts/sst_deploy.sh
       Container:
