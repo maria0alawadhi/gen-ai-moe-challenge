@@ -25,6 +25,11 @@ Actions:
         Enabled: true
         # Use as prefix for the report files
         ReportNamePrefix: rpt
+      Reports:
+        UntitledReport:
+          Format: SIMPLECOV
+          IncludePaths:
+            - output/report.xml
     # Defines the action's properties.
     Configuration:
       # Required - Steps are sequential instructions that run shell commands
